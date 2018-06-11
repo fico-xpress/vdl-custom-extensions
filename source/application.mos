@@ -1,0 +1,34 @@
+(!******************************************************
+   Quick start app
+   ===============
+
+   Template for creating an Xpress Insight
+   compatible Mosel model.
+
+   (c) 2018 Fair Isaac Corporation
+
+*******************************************************!)
+
+model "Sidebar Demo"
+  uses "mminsight"
+  version 1.0.0
+
+  declarations
+    num: integer
+
+    CUSTOMERID: set of integer
+    customerName: dynamic array(CUSTOMERID) of string
+    credit: dynamic array(CUSTOMERID) of real
+    enabled: dynamic array(CUSTOMERID) of boolean
+  end-declarations
+
+  num:=1
+
+  initializations from "customers.dat"
+    [customerName, credit, enabled] as 'DATA'
+  end-initializations
+
+
+  writeln("Model run finished.")
+
+end-model

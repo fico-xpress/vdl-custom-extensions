@@ -1,0 +1,154 @@
+<vdl version="4.1">
+
+    <link rel="stylesheet" href="includes/sidebar2.css"></link>
+
+    <script>
+
+        var currentView = VDL.createVariable();
+
+        VDL('vdl-sidebar-section', {
+            tag: 'vdl-sidebar-section',
+            modifiesDescendants: false,
+            createViewModel: function (params, componentInfo, vmApi) {
+                var vm = {};
+                params.registerMenuItem(params.name, 'menu', params.sectionId);
+                vm.showSection = VDL.createVariable(false);
+                currentView.subscribe(function(selectId) {
+                    vm.showSection(selectId === params.sectionId);
+                    vm.showSection() ? $(componentInfo.element).show() : $(componentInfo.element).hide();
+                });
+                if(!currentView()) {
+                    currentView(params.sectionId);
+                }
+                return vm;
+            },
+            transform: function (element, attrs, api) {
+                var id = _.get(attrs, 'id.rawValue', api.createId('sidebar-menuitem-'));
+                if ($(element).attr('id') !== id) {
+                    $(element).attr('id', id);
+                }
+
+                var paramsBuilder = api.getComponentParamsBuilder(element)
+                    .addParentCallbackParam('registerMenuItem');
+                paramsBuilder.addParam('name', _.get(attrs, 'heading.rawValue', id || 'no-name'));
+                paramsBuilder.addParam('sectionId', id);
+                $(element).hide();
+            }
+        });
+
+        VDL('vdl-sidebar-header', {
+            tag: 'vdl-sidebar-header',
+            modifiesDescendants: false,
+            createViewModel: function (params, componentInfo, vmApi) {
+                var vm = {};
+                params.registerMenuItem(params.name, 'header', undefined);
+                return vm;
+            },
+            transform: function (element, attrs, api) {
+                var paramsBuilder = api.getComponentParamsBuilder(element)
+                    .addParentCallbackParam('registerMenuItem');
+                paramsBuilder.addParam('name', $(element).text() || 'no heading text');
+                $(element).hide();
+            }
+        });
+
+        VDL('vdl-sidebar-divider', {
+            tag: 'vdl-sidebar-divider',
+            modifiesDescendants: false,
+            createViewModel: function (params, componentInfo, vmApi) {
+                var vm = {};
+                params.registerMenuItem(undefined, 'divider', undefined);
+                return vm;
+            },
+            transform: function (element, attrs, api) {
+                var paramsBuilder = api.getComponentParamsBuilder(element)
+                    .addParentCallbackParam('registerMenuItem');
+                $(element).hide();
+            }
+        });
+
+
+
+    </script>
+
+    <vdl-extension name="vdl-sidebar">
+
+        <script>
+
+            var template = '<div id="container-sidebar">\n' +
+                '                    <div class="sidebar-collapse mini-submenu">\n' +
+                '                        <span><i class="fico-icon-chevron-circle-right"></i></span>\n' +
+                '                    </div>\n' +
+                '                    <ul class="sidebar compact-sidebar list-group" style="">\n' +
+                '\t\t\t\t\t<span class="pull-right" id="slide-submenu">\n' +
+                '\t\t\t\t\t\t<i class="fico-icon-chevron-circle-left"></i>\n' +
+                '\t\t\t\t\t</span>\n' +
+                '\t\t\t\t\t<!-- ko foreach: menuItems -->\n' +
+                '                        <!-- ko if: $data[1] === \'menu\' -->\n' +
+                '\t\t\t\t\t    <li data-bind="css: {active: $data.length > 3}">\n' +
+                '                            <a href="#" data-bind="text: $data[0], click: $component.menuChoice">_</a>\n' +
+                '                        </li>\n' +
+                '\t\t\t\t\t    <!-- /ko -->\n' +
+                '                        <!-- ko if: $data[1] === \'divider\' -->\n' +
+                '\t\t\t\t\t    <li class="nav-side-divider"></li>\n' +
+                '\t\t\t\t\t    <!-- /ko -->\n' +
+                '                        <!-- ko if: $data[1] === \'header\' -->\n' +
+                '\t\t\t\t\t    <li class="header" data-bind="text: $data[0]"></li>\n' +
+                '\t\t\t\t\t    <!-- /ko -->\n' +
+                '\t\t\t\t\t<!-- /ko -->\n' +
+                '                    </ul>\n' +
+                '            </div>\n' +
+                '            <div class="views">\n' +
+                '                <vdl-contents></vdl-contents>\n' +
+                '            </div>';
+
+            var menuItems = ko.observableArray();
+
+            VDL('vdl-sidebar', {
+                tag: 'vdl-sidebar',
+                template: template,
+                createViewModel: function (params, componentInfo, vmApi) {
+                    var init = false;
+                    var sidebarId = params.sidebarId;
+                    var vm = {};
+                    vm.registerMenuItem = function (name, type, id) {
+                        if(!init && (type === 'menu')) {
+                            init = true;
+                            menuItems.push([name, type, id, 'active']);
+                        } else {
+                            menuItems.push([name, type, id]);
+                        }
+                    };
+                    /*
+                        data = [name, type, link, active?]
+                    */
+                    vm.menuChoice = function(data) {
+                        if(data.length === 3) {
+                            menuItems(menuItems().map(function(item) {
+                                var result;
+                                if(data[0] === item[0]) {
+                                    result = item.slice(0,3).concat('active');
+                                    currentView(item[2])
+                                    window.sessionStorage.setItem(sidebarId, item[2]);
+                                } else {
+                                    result = item.slice(0,3);
+                                }
+                                return result;
+                            }));
+                        }
+                    }
+                    return vm;
+                },
+                transform: function (element, attrs, api) {
+                    var id = _.get(attrs, 'id.rawValue', api.createId('sidebar-'));
+                    if ($(element).attr('id') !== id) {
+                        $(element).attr('id', id);
+                    }
+                    var paramsBuilder = api.getComponentParamsBuilder(element);
+                    paramsBuilder.addParam('sidebarId', id);
+                    currentView(window.sessionStorage.getItem(id));
+                }
+            });
+        </script>
+    </vdl-extension>
+</vdl>

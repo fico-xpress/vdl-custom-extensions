@@ -1,0 +1,13 @@
+/*
+    File Type: CSS stylesheet.
+    Purpose: Provides custom styling for the VDL and HTML views in the application. This is included into each view.
+    (c) 2016-2017 Fair Isaac Corporation.
+*/
+.result-section {
+    margin-top: 15px;
+    height: 200px;
+}
+
+.action-button + .action-button {
+    margin-left: 5px;
+}

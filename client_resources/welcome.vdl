@@ -1,0 +1,7 @@
+<vdl version="4.1">
+    <vdl-page>
+        <vdl-section heading="Sidebar Component Demo">
+            <p>This project demonstrates the use of the <code>&lt;vdl-sidebar&gt;</code> component.</p>
+        </vdl-section>
+    </vdl-page>
+</vdl>

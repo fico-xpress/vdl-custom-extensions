@@ -1,0 +1,52 @@
+<vdl version="4.1">
+
+    <script>
+
+        VDL('vdl-sidebar-item', {
+            tag: 'vdl-sidebar-item',
+            attributes: [
+                {name: 'name'},
+                {name: 'type'},
+                {name: 'link'}
+            ],
+            modifiesDescendants: false,
+            createViewModel: function (params, componentInfo, api) {
+                var vm = {};
+                params.addMenuItem(params.name, params.type, params.link);
+                return vm;
+            },
+            transform: function(element, attributes, api) {
+                var paramsBuilder = api
+                    .getComponentParamsBuilder(element)
+                    .addParentCallbackParam('addMenuItem');
+                paramsBuilder.addParam('name', _.get(attributes, 'name.rawValue', 'no-name'));
+                paramsBuilder.addParam('type', _.get(attributes, 'type.rawValue', 'menu'));
+                paramsBuilder.addParam('link', _.get(attributes, 'link.rawValue', 'main'));
+
+            }
+        })
+
+    </script>
+
+    <vdl-extension name="vdl-sidebar">
+        <vdl-template>
+        </vdl-template>
+        <script>
+            VDL('vdl-sidebar', {
+                createViewModel: function (params, componentInfo, api) {
+                    var vm = {};
+
+                    vm.menuItems = ko.observableArray();
+
+                    vm.addMenuItem = function(name, type, link) {
+                        vm.menuItems.push({name: name, type: type, link: link});
+                    }
+                    return vm;
+                },
+                transform: function(element, attributes, api) {
+
+                }
+            })
+        </script>
+    </vdl-extension>
+</vdl>

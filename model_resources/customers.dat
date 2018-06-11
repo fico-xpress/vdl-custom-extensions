@@ -1,0 +1,8 @@
+DATA: [
+    (1) ["Dale Cooper" 100.5 true]
+    (2) ["Harry S. Truman" 130.2 false]
+    (3) ["Shelly Johnson" 202.0 true]
+    (4) ["Bobby Briggs" 27.1 false]
+    (5) ["Benjamin Horne" 99.99 false]
+    (6) ["Donna Hayward" 1005.6 true]
+]

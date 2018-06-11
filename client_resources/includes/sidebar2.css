@@ -1,0 +1,37 @@
+/*
+    make page full-height
+ */
+body, #main, vdl-page, vdl-page vdl-section, div.section-body, vdl-page vdl-row {
+    display: flex;
+    align-items: stretch;
+}
+
+vdl-page vdl-column.with-sidebar, .with-sidebar .column-body {
+    display: flex;
+    align-items: stretch;
+}
+
+
+vdl-sidebar-section {
+
+}
+
+vdl-sidebar {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+vdl-sidebar #container-sidebar {
+    min-width: initial;
+    flex-basis: 300px;
+    height: initial;
+}
+
+vdl-sidebar .views {
+    flex-basis: auto;
+}
+
+vdl-sidebar .sidebar {
+    position: initial;
+}

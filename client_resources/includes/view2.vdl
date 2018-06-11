@@ -1,0 +1,9 @@
+<vdl version="4.1">
+    <vdl-column heading="Customers" size="9">
+        <vdl-table>
+            <vdl-table-column entity="customerName"></vdl-table-column>
+            <vdl-table-column entity="credit"></vdl-table-column>
+            <vdl-table-column entity="enabled" editable="true"></vdl-table-column>
+        </vdl-table>
+    </vdl-column>
+</vdl>

@@ -1,0 +1,49 @@
+<vdl version="4.1">
+
+    <vdl-include src="includes/sidebar2.vdl" ></vdl-include>
+
+    <style>
+        .showoff {
+            margin-top: 20px;
+            height: 100px;
+            width: 100px;
+            outline: 1px solid red;
+        }
+    </style>
+
+    <vdl-page vdl-if="=false">
+
+        <vdl-section heading="Test">
+            <div class="showoff">
+                <i class="icon-chevron-left"></i>
+            </div>
+        </vdl-section>
+
+    </vdl-page>
+
+    <vdl-page>
+
+
+        <vdl-sidebar id="component-demo">
+
+            <vdl-sidebar-header>Main</vdl-sidebar-header>
+
+            <vdl-sidebar-section id="main-section" heading="First View">
+                <vdl-include src="includes/view1.vdl" />
+            </vdl-sidebar-section>
+
+            <vdl-sidebar-section data-id="second-section" heading="Second View">
+                <vdl-include src="includes/view2.vdl" />
+            </vdl-sidebar-section>
+
+            <vdl-sidebar-divider></vdl-sidebar-divider>
+
+            <vdl-sidebar-header>Other</vdl-sidebar-header>
+
+            <vdl-sidebar-section id="third-section" heading="Third View">
+                <vdl-include src="includes/view3.vdl" />
+            </vdl-sidebar-section>
+
+        </vdl-sidebar>
+    </vdl-page>
+</vdl>
