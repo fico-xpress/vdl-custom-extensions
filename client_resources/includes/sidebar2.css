@@ -9,7 +9,7 @@ body {
     margin: 0;
 }
 
-vdl-page vdl-column.with-sidebar, .with-sidebar .column-body {
+vdl-column.with-sidebar, .with-sidebar .column-body {
     display: flex;
     align-items: stretch;
 }
@@ -33,14 +33,18 @@ vdl-sidebar .views {
 }
 
 vdl-sidebar #container-sidebar.expanded {
-    min-width: 260px; /* 300px */
-    width: 260px; /* 300px */
+    min-width: 240px; /* 300px */
+    width: 240px; /* 300px */
 }
 vdl-sidebar .views.expanded {
 }
 
 vdl-sidebar .sidebar {
     position: initial;
+}
+
+.sidebar .header {
+    min-width: 230px;
 }
 
 i.sidebar-left {

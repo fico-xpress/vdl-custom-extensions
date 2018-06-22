@@ -3,11 +3,23 @@
     Purpose: Provides custom styling for the VDL and HTML views in the application. This is included into each view.
     (c) 2016-2017 Fair Isaac Corporation.
 */
-.result-section {
-    margin-top: 15px;
-    height: 200px;
+code-panel {
+    display: inline-block;
+    white-space: pre-line;
+    font-family: "Courier New", monospace;
+    padding: 0;
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-bottom: 9px;
+    margin: 0;
+    background-color: rgb(242, 242, 242);
+    border-radius: 4px;
+    margin-bottom: 9px;
 }
 
-.action-button + .action-button {
-    margin-left: 5px;
+code-panel:before {
+    content: 'Source Code';
+    font-weight: bold;
+    font-size: 1.25em;
+    line-height: 2em;
 }

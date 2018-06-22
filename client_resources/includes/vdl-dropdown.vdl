@@ -1,0 +1,31 @@
+<vdl version="4.1">
+
+    <script>
+
+        VDL('vdl-dropdown-button', {
+            tag: 'vdl-dropdown-button',
+            template: '                <div class="btn-group">\n' +
+            '                    <button type="button" class="btn btn dropdown-toggle" data-toggle="dropdown">\n' +
+            '                        <span data-bind="text: title"></span> <span class="caret-expanded"></span>\n' +
+            '                    </button>\n' +
+            '                    <ul class="dropdown-menu" role="menu">\n' +
+            '                       <vdl-contents></vdl-contents>\n' +
+            '                    </ul>\n' +
+            '                </div>',
+
+            createViewModel: function(params) {
+                var vm = {};
+                vm.title = VDL.createVariable(params.title);
+                return vm;
+            },
+
+            transform: function(element, attrs, api) {
+                var builder = api.getComponentParamsBuilder(element)
+                    .addParam('title', attrs.title.rawValue);
+            }
+
+        });
+
+    </script>
+
+</vdl>

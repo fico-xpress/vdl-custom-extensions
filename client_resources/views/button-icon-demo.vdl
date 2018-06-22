@@ -1,0 +1,51 @@
+<vdl version="4.1">
+    <vdl-column>
+        <vdl-section heading-level="3" heading="Button Icons">
+            <vdl-row>
+                <p class="lead">A button with an SVG icon</p>
+                <vdl-column size="4" heading="Single SVG icon button">
+
+                    <button class="btn"><img src="gfx/lock.svg" alt="Locked"></button>
+
+                </vdl-column>
+                <vdl-column size="8" heading="Source Code">
+                    <code-panel>
+&lt;button class=&quot;btn&quot;&gt;&lt;img src=&quot;gfx/lock.svg&quot; alt=&quot;Locked&quot;&gt;&lt;/button&gt;
+                    </code-panel>
+                </vdl-column>
+            </vdl-row>
+
+            <vdl-row>
+                <p class="lead">An example of a button with <code>btn-primary</code></p>
+                <vdl-column size="4" heading="Single SVG icon button primary">
+                    <button class="btn btn-primary"><img src="gfx/unlocked.svg" alt="Locked"></button>
+                </vdl-column>
+                <vdl-column size="8" heading="Source Code">
+<code-panel>&lt;button class=&quot;btn btn-primary&quot;&gt;
+    &lt;img src=&quot;gfx/unlocked.svg&quot; alt=&quot;Locked&quot;&gt;
+&lt;/button&gt;</code-panel>
+                </vdl-column>
+            </vdl-row>
+
+            <vdl-row>
+                <p class="lead">An example of buttons with <code>btn-group</code></p>
+                <vdl-column size="4" heading="Single SVG icon button primary">
+                    <div class="btn-group">
+                        <button class="btn btn-primary"><img src="gfx/lock.svg" alt="Locked"></button>
+                        <button class="btn btn-primary"><img src="gfx/unlocked.svg" alt="Locked"></button>
+                        <button class="btn btn-primary"><img src="gfx/unlocked.svg" alt="Locked"></button>
+                    </div>
+                </vdl-column>
+                <vdl-column size="8" heading="Source Code">
+<code-panel>&lt;div class=&quot;btn-group&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;&lt;img src=&quot;gfx/lock.svg&quot; alt=&quot;Locked&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;&lt;img src=&quot;gfx/unlocked.svg&quot; alt=&quot;Locked&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;&lt;img src=&quot;gfx/unlocked.svg&quot; alt=&quot;Locked&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;</code-panel>
+                </vdl-column>
+            </vdl-row>
+
+
+        </vdl-section>
+    </vdl-column>
+</vdl>

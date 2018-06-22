@@ -1,0 +1,34 @@
+<vdl version="4.1">
+
+    <script>
+        var showChildFilteredTable = VDL.createVariable();
+        var childFilteredTableIndex = VDL.createVariable();
+        function rowSelect(vm, evt, selection) {
+            if(selection) {
+                showChildFilteredTable(true);
+                childFilteredTableIndex(selection.activeCell.rowData);
+            } else {
+                showChildFilteredTable(false);
+                childFilteredTableIndex([undefined, undefined]);
+            }
+        }
+    </script>
+    <h3>Parent Child Tables</h3>
+    <vdl-column>
+        <p class="lead">Parent child detail tables. Select a row in the master table and the child table opens to show other data from that set.</p>
+    </vdl-column>
+    <vdl-column size="6" heading="Master table">
+        <vdl-table id="master-table" vdl-event="'selection-changed':rowSelect, 'selection-removed':rowSelect">
+            <vdl-table-column entity="AGENCYNAME"></vdl-table-column>
+        </vdl-table>
+    </vdl-column>
+    <vdl-column size="6" heading="Child table" vdl-if="=showChildFilteredTable">
+        <vdl-table id="child-table" row-filter="=function(rowData, indices) {return rowData[0] === childFilteredTableIndex()[0];}">
+            <vdl-table-column set="AGENCY" class="hide"></vdl-table-column>
+            <vdl-table-column entity="MIN_AGENT_ACCOUNTS"></vdl-table-column>
+            <vdl-table-column entity="MAX_AGENT_ACCOUNTS"></vdl-table-column>
+            <vdl-table-column entity="NAGENTS"></vdl-table-column>
+        </vdl-table>
+    </vdl-column>
+
+</vdl>

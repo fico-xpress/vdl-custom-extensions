@@ -9,9 +9,9 @@
 
 *******************************************************!)
 
-model "Sidebar Demo"
+model "VDL Extensions Demo"
   uses "mminsight"
-  version 1.0.0
+  version 1.0.1
 
   declarations
     num: integer
@@ -20,7 +20,27 @@ model "Sidebar Demo"
     customerName: dynamic array(CUSTOMERID) of string
     credit: dynamic array(CUSTOMERID) of real
     enabled: dynamic array(CUSTOMERID) of boolean
+
+    ! Sets
+    AGENCY: set of string                       ! Collections agencies
+    AGENCYNAME: array(AGENCY) of string         ! Agency name/description
+    ! Agency data
+    MIN_AGENT_ACCOUNTS: array(AGENCY) of real   ! Min number of contracts per agent
+    MAX_AGENT_ACCOUNTS: array(AGENCY) of real   ! Max number of contracts per agent
+    NAGENTS: array(AGENCY) of real              ! Number of agents per agency
+    MIN_AGENT_COMMISSION: array(AGENCY) of real ! Minimum commission per agent
+    MAX_PERC_AGENCY: array(AGENCY) of real      ! Maximum percentage per agency
+
   end-declarations
+
+  initializations from "agency_example_data.txt"
+      AGENCYNAME
+      MIN_AGENT_ACCOUNTS
+      MAX_AGENT_ACCOUNTS
+      NAGENTS
+      MIN_AGENT_COMMISSION
+      MAX_PERC_AGENCY
+  end-initializations
 
   num:=1
 

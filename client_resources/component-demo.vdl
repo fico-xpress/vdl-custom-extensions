@@ -2,25 +2,6 @@
 
     <vdl-include src="includes/sidebar2.vdl" ></vdl-include>
 
-    <style>
-        .showoff {
-            margin-top: 20px;
-            height: 100px;
-            width: 100px;
-            outline: 1px solid red;
-        }
-    </style>
-
-    <vdl-page vdl-if="=false">
-
-        <vdl-section heading="Test">
-            <div class="showoff">
-                <i class="icon-chevron-left"></i>
-            </div>
-        </vdl-section>
-
-    </vdl-page>
-
     <vdl-page>
 
         <vdl-sidebar id="sidebar-component-demo">

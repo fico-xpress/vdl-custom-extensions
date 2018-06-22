@@ -1,0 +1,40 @@
+<vdl version="4.1">
+
+    <style>
+        .card-group {
+            background-color: rgb(242,242,242);
+            padding-right: 9px;
+            padding-bottom: 9px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-right: 9px;
+        }
+        .card {
+            border: 0px solid rgb(242,242,242);
+            background-color: white;
+            height: 200px;
+            width: 320px;
+            border-radius: 4px;
+            margin-left: 9px;
+            margin-top: 9px;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+    </style>
+
+
+    <vdl-column size="12">
+        <h3>Group</h3>
+    </vdl-column>
+    <div class="card-group">
+        <div class="card" vdl-repeat="=agy in scenario.entities.AGENCY">
+            <h4 vdl-text="=scenario.entities.AGENCYNAME([agy.value]).value"></h4>
+            <vdl-form layout="vertical">
+                <vdl-field entity="MIN_AGENT_COMMISSION" size="10" indices="=[agy.value]"></vdl-field>
+                <vdl-field entity="MIN_AGENT_ACCOUNTS" size="10" indices="=[agy.value]"></vdl-field>
+            </vdl-form>
+        </div>
+    </div>
+
+</vdl>

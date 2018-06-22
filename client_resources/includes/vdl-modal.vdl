@@ -1,0 +1,41 @@
+<vdl version="4.1">
+
+    <script>
+
+        VDL('vdl-modal', {
+            tag: 'vdl-modal',
+
+            template: '<div class="modal fade" id="myModal" tabindex="-1" role="dialog">\n' +
+            '  <div class="modal-dialog" role="document">\n' +
+            '    <div class="modal-content">\n' +
+            '      <div class="modal-header">\n' +
+            '        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>\n' +
+            '        <h4 class="modal-title" id="myModalLabel">Modal title</h4>\n' +
+            '      </div>\n' +
+            '      <div class="modal-body">\n' +
+            '        <vdl-contents></vdl-contents>' +
+            '      </div>\n' +
+            '      <div class="modal-footer">\n' +
+            '        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\n' +
+            '      </div>\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '</div>',
+
+            createViewModel: function(params, component, api) {
+                var vm = {};
+                $(component.element).on('showModal', function(evt) {
+                    $(component.element).find('.modal').modal('show');
+                });
+                return vm;
+            },
+
+            transform: function(element, attrs, api) {
+
+            }
+
+        });
+
+    </script>
+
+</vdl>

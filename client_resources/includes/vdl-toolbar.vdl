@@ -1,0 +1,40 @@
+<vdl version="4.1">
+
+    <style>
+        vdl-toolbar {
+            outline: 1px solid lightgray;
+            padding: 11px 27px;
+            width: 100%;
+            height: 60px;
+            display: block;
+        }
+
+        vdl-toolbar h2.title {
+            font-size: 20px;
+            line-height: 35px;
+            display: inline-block;
+            margin: 2px;
+            padding: 0;
+        }
+
+        .vdl-toolbar-buttons {
+            float: right;
+        }
+    </style>
+
+    <script>
+        VDL('vdl-toolbar', {
+            tag: 'vdl-toolbar',
+            template: '<h2 class="title" data-bind="text: heading"></h2><div class="pull-right"><vdl-contents></vdl-contents></div>',
+            createViewModel: function (params) {
+                var vm = {};
+                vm.heading = VDL.createVariable(params.heading);
+                return vm;
+            },
+            transform: function (element, attrs, api) {
+                var builder = api.getComponentParamsBuilder(element)
+                    .addParam('heading', attrs.heading.rawValue);
+            }
+        });
+    </script>
+</vdl>
