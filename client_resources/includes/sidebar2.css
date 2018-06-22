@@ -1,9 +1,12 @@
 /*
     make page full-height
  */
-body, #main, vdl-page, vdl-page vdl-section, div.section-body, vdl-page vdl-row {
-    display: flex;
-    align-items: stretch;
+body, #main, vdl-page {
+    height: 100%;
+}
+
+body {
+    margin: 0;
 }
 
 vdl-page vdl-column.with-sidebar, .with-sidebar .column-body {
@@ -11,25 +14,22 @@ vdl-page vdl-column.with-sidebar, .with-sidebar .column-body {
     align-items: stretch;
 }
 
-
-vdl-sidebar-section {
-
-}
-
 vdl-sidebar {
     display: flex;
-    align-items: stretch;
-    justify-content: stretch;
+    height: 100%;
 }
 
 vdl-sidebar #container-sidebar {
-    min-width: initial;
-    flex-basis: 300px;
-    height: initial;
+    min-width: 300px;
+    width: 300px;
+    height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 vdl-sidebar .views {
-    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 vdl-sidebar .sidebar {
