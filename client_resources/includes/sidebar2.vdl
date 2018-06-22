@@ -42,7 +42,6 @@
                     .addParentCallbackParam('registerMenuItem');
                 paramsBuilder.addParam('name', _.get(attrs, 'heading.rawValue', id || 'no-name'));
                 paramsBuilder.addParam('sectionId', id);
-                // $(element).hide();
             }
         });
 
@@ -123,7 +122,6 @@
                 vm.registerMenuItem = function (name, type, id) {
                     var menuItemData = {name: name, type: type, link: id};
                     if (!init && (type === 'menu')) { // the first item with type === 'menu' becomes the active menu
-                        // init = true;
                         if(!prevPage) {
                             menuItemData.active = true;
                             init = true;
@@ -165,7 +163,6 @@
                 };
 
                 vm.expanded = VDL.createVariable(window.sessionStorage.getItem(sidebarIdExpanded) === null ? true : window.sessionStorage.getItem(sidebarIdExpanded) === 'true');
-                // debugger;
                 vm.expandNav = function() {
                     vm.expanded(true);
                     window.sessionStorage.setItem(sidebarIdExpanded, true);
@@ -185,8 +182,6 @@
                 }
                 var paramsBuilder = api.getComponentParamsBuilder(element);
                 paramsBuilder.addParam('sidebarId', id);
-
-                // currentView(window.sessionStorage.getItem(id));
             }
         })
         ;
