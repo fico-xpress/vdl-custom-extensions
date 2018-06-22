@@ -1,6 +1,76 @@
 <vdl version="4.1">
 
-    <link rel="stylesheet" href="includes/sidebar2.css"></link>
+    <style>
+        /*
+            make page full-height
+        */
+        body, #main, vdl-page {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        vdl-column.with-sidebar, .with-sidebar .column-body {
+            display: flex;
+            align-items: stretch;
+        }
+
+        vdlx-sidebar {
+            display: flex;
+            height: 100%;
+        }
+
+        vdlx-sidebar #container-sidebar {
+            min-width: 60px; /* 300px */
+            width: 60px; /* 300px */
+            height: 100%;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        vdlx-sidebar .views {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        vdlx-sidebar #container-sidebar.expanded {
+            min-width: 240px; /* 300px */
+            width: 240px; /* 300px */
+        }
+
+        vdlx-sidebar .views.expanded {
+        }
+
+        vdlx-sidebar .sidebar {
+            position: initial;
+        }
+
+        .sidebar .header {
+            min-width: 230px;
+        }
+
+        i.sidebar-left {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background: no-repeat url(chevron-left.png);
+            background-size: 75%;
+        }
+
+        i.sidebar-right {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background: no-repeat url(chevron-right.png);
+            background-size: 75%;
+        }
+
+        .mini-submenu {
+            display: block;
+        }
+    </style>
 
     <script>
 
@@ -11,8 +81,8 @@
 
         var menuItems = ko.observableArray();
 
-        VDL('vdl-sidebar-section', {
-            tag: 'vdl-sidebar-section',
+        VDL('vdlx-sidebar-section', {
+            tag: 'vdlx-sidebar-section',
             modifiesDescendants: false,
             template: '<vdl-section  data-bind="if: $component.showSection"><vdl-contents></vdl-contents></vdl-section>',
             createViewModel: function (params, componentInfo, vmApi) {
@@ -45,8 +115,8 @@
             }
         });
 
-        VDL('vdl-sidebar-header', {
-            tag: 'vdl-sidebar-header',
+        VDL('vdlx-sidebar-header', {
+            tag: 'vdlx-sidebar-header',
             modifiesDescendants: false,
             createViewModel: function (params, componentInfo, vmApi) {
                 var vm = {};
@@ -61,8 +131,8 @@
             }
         });
 
-        VDL('vdl-sidebar-divider', {
-            tag: 'vdl-sidebar-divider',
+        VDL('vdlx-sidebar-divider', {
+            tag: 'vdlx-sidebar-divider',
             modifiesDescendants: false,
             createViewModel: function (params, componentInfo, vmApi) {
                 var vm = {};
@@ -103,8 +173,8 @@
             '                <vdl-contents></vdl-contents>\n' +
             '            </div>';
 
-        VDL('vdl-sidebar', {
-            tag: 'vdl-sidebar',
+        VDL('vdlx-sidebar', {
+            tag: 'vdlx-sidebar',
             template: template,
             createViewModel: function (params, componentInfo, vmApi) {
                 var init = false;
@@ -122,11 +192,11 @@
                 vm.registerMenuItem = function (name, type, id) {
                     var menuItemData = {name: name, type: type, link: id};
                     if (!init && (type === 'menu')) { // the first item with type === 'menu' becomes the active menu
-                        if(!prevPage) {
+                        if (!prevPage) {
                             menuItemData.active = true;
                             init = true;
                         } else {
-                            if(menuItemData.link === prevPage) {
+                            if (menuItemData.link === prevPage) {
                                 menuItemData.active = true;
                                 init = true;
                             }
@@ -136,8 +206,8 @@
                     }
                     console.log('[sidebar] registerMenuItem', menuItemData);
                     menuItems.push(menuItemData);
-                    if(menuItemData.active) {
-                        _.delay(function() {
+                    if (menuItemData.active) {
+                        _.delay(function () {
                             currentView(menuItemData.link);
                         });
                     }
@@ -163,12 +233,12 @@
                 };
 
                 vm.expanded = VDL.createVariable(window.sessionStorage.getItem(sidebarIdExpanded) === null ? true : window.sessionStorage.getItem(sidebarIdExpanded) === 'true');
-                vm.expandNav = function() {
+                vm.expandNav = function () {
                     vm.expanded(true);
                     window.sessionStorage.setItem(sidebarIdExpanded, true);
                 };
 
-                vm.collapseNav = function() {
+                vm.collapseNav = function () {
                     vm.expanded(false);
                     window.sessionStorage.setItem(sidebarIdExpanded, false);
                 };

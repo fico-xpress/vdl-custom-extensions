@@ -11,7 +11,7 @@
 
     </script>
 
-    <vdl-include src="includes/sidebar2.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-sidebar.vdl"></vdl-include>
     <vdl-include src="includes/vdl-toolbar.vdl"></vdl-include>
     <vdl-include src="includes/vdl-dropdown.vdl"></vdl-include>
     <vdl-include src="includes/vdl-modal.vdl"></vdl-include>
@@ -24,66 +24,66 @@
 
 
     <vdl-page>
-        <vdl-sidebar id="all-demos-sidebar">
+        <vdlx-sidebar id="all-demos-sidebar">
 
-            <vdl-sidebar-header>Demos</vdl-sidebar-header>
+            <vdlx-sidebar-header>Demos</vdlx-sidebar-header>
 
-            <vdl-sidebar-section id="intro-section" heading="Overview">
+            <vdlx-sidebar-section id="intro-section" heading="Overview">
 
                 <vdl-column size="9">
                     <h3>Overview</h3>
-                    <p class="lead">This view uses the <code>vdl-sidebar</code> custom extension to introduce other
+                    <p class="lead">This view uses the <code>vdlx-sidebar</code> custom extension to introduce other
                         custom extensions</p>
                     <p>The sidebar is in use to the right and controls the visibility of all the
-                        sections tagged with <code>vdl-sidebar-section</code></p>
+                        sections tagged with <code>vdlx-sidebar-section</code></p>
                     <code-panel>
-&lt;vdl-sidebar&gt;
-    &lt;vdl-sidebar-header&gt;Demos&lt;/vdl-sidebar-header&gt;
-    &lt;vdl-sidebar-section id=&quot;intro-section&quot; heading=&quot;Overview&quot;&gt;
+&lt;vdlx-sidebar&gt;
+    &lt;vdlx-sidebar-header&gt;Demos&lt;/vdlx-sidebar-header&gt;
+    &lt;vdlx-sidebar-section id=&quot;intro-section&quot; heading=&quot;Overview&quot;&gt;
         &lt;!-- This content --&gt;
-    &lt;/vdl-sidebar-section&gt;
-    &lt;vdl-sidebar-section id=&quot;cards-demo-section&quot; heading=&quot;Cards Demo&quot;/&gt;
-    &lt;vdl-sidebar-section id=&quot;tabs-demo-section&quot; heading=&quot;Tabs Demo&quot;/&gt;
-    &lt;vdl-sidebar-section id=&quot;button-icons-demo-section&quot; heading=&quot;Button Icons Demo&quot;&gt;
+    &lt;/vdlx-sidebar-section&gt;
+    &lt;vdlx-sidebar-section id=&quot;cards-demo-section&quot; heading=&quot;Cards Demo&quot;/&gt;
+    &lt;vdlx-sidebar-section id=&quot;tabs-demo-section&quot; heading=&quot;Tabs Demo&quot;/&gt;
+    &lt;vdlx-sidebar-section id=&quot;button-icons-demo-section&quot; heading=&quot;Button Icons Demo&quot;&gt;
     &lt;vdl-include src=&quot;views/button-icon-demo.vdl&quot;/&gt;
-    &lt;/vdl-sidebar-section&gt;
-&lt;/vdl-sidebar&gt;
+    &lt;/vdlx-sidebar-section&gt;
+&lt;/vdlx-sidebar&gt;
                     </code-panel>
 
                 </vdl-column>
 
                 <vdl-column></vdl-column>
 
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="toolbar-demo-section" heading="Toolbar Demo">
+            <vdlx-sidebar-section id="toolbar-demo-section" heading="Toolbar Demo">
                 <vdl-include src="views/toolbar-demo.vdl"/>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="cards-demo-section" heading="Cards Demo">
+            <vdlx-sidebar-section id="cards-demo-section" heading="Cards Demo">
                 <vdl-include src="views/cards-demo.vdl"/>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="tabs-demo-section" heading="Tabs Demo">
+            <vdlx-sidebar-section id="tabs-demo-section" heading="Tabs Demo">
                 <vdl-include src="views/tabs-demo.vdl"></vdl-include>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="dropdown-demo-section" heading="Dropdown Demo">
+            <vdlx-sidebar-section id="dropdown-demo-section" heading="Dropdown Demo">
                 <vdl-include src="views/dropdown-demo.vdl"></vdl-include>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="button-icons-demo-section" heading="Button Icons Demo">
+            <vdlx-sidebar-section id="button-icons-demo-section" heading="Button Icons Demo">
                 <vdl-include src="views/button-icon-demo.vdl"/>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="parent-child-demo-section" heading="Parent Child Demo">
+            <vdlx-sidebar-section id="parent-child-demo-section" heading="Parent Child Demo">
                 <vdl-include src="views/parent-child-demo.vdl"/>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="dialog-demo-section" heading="Dialog Demo">
+            <vdlx-sidebar-section id="dialog-demo-section" heading="Dialog Demo">
                 <vdl-include src="views/dialog-demo.vdl"/>
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-        </vdl-sidebar>
+        </vdlx-sidebar>
     </vdl-page>
 </vdl>

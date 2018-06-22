@@ -4,26 +4,26 @@
 
     <vdl-page>
 
-        <vdl-sidebar id="sidebar-component-demo">
+        <vdlx-sidebar id="sidebar-component-demo">
 
-            <vdl-sidebar-header>Main</vdl-sidebar-header>
+            <vdlx-sidebar-header>Main</vdlx-sidebar-header>
 
-            <vdl-sidebar-section id="main-section" heading="First View">
+            <vdlx-sidebar-section id="main-section" heading="First View">
                 <vdl-include src="includes/view1.vdl" />
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-section id="second-section" heading="Second View">
+            <vdlx-sidebar-section id="second-section" heading="Second View">
                 <vdl-include src="includes/view2.vdl" />
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-            <vdl-sidebar-divider></vdl-sidebar-divider>
+            <vdlx-sidebar-divider></vdlx-sidebar-divider>
 
-            <vdl-sidebar-header>Other</vdl-sidebar-header>
+            <vdlx-sidebar-header>Other</vdlx-sidebar-header>
 
-            <vdl-sidebar-section id="third-section" heading="Third View">
+            <vdlx-sidebar-section id="third-section" heading="Third View">
                 <vdl-include src="includes/view3.vdl" />
-            </vdl-sidebar-section>
+            </vdlx-sidebar-section>
 
-        </vdl-sidebar>
+        </vdlx-sidebar>
     </vdl-page>
 </vdl>
