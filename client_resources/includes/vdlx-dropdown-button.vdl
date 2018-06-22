@@ -2,8 +2,8 @@
 
     <script>
 
-        VDL('vdl-dropdown-button', {
-            tag: 'vdl-dropdown-button',
+        VDL('vdlx-dropdown-button', {
+            tag: 'vdlx-dropdown-button',
             template: '                <div class="btn-group">\n' +
             '                    <button type="button" class="btn btn dropdown-toggle" data-toggle="dropdown">\n' +
             '                        <span data-bind="text: title"></span> <span class="caret-expanded"></span>\n' +

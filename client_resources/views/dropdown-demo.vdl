@@ -2,21 +2,21 @@
     <h3>Dropdown Menu</h3>
     <vdl-column>
         <p class="lead">A simple dropdown menu custom extension</p>
-        <code-panel>&lt;vdl-dropdown-button title=&quot;Dropdown Button&quot;&gt;
+        <code-panel>&lt;vdlx-dropdown-button title=&quot;Dropdown Button&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-&lt;/vdl-dropdown-button&gt;</code-panel>
+&lt;/vdlx-dropdown-button&gt;</code-panel>
     </vdl-column>
     <vdl-column heading="Example">
-        <vdl-dropdown-button title="Dropdown Button">
+        <vdlx-dropdown-button title="Dropdown Button">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
-        </vdl-dropdown-button>
+        </vdlx-dropdown-button>
     </vdl-column>
 </vdl>

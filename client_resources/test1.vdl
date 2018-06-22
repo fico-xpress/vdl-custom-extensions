@@ -58,13 +58,13 @@
             </vdl-row>
             <vdl-row>
 
-                <vdl-dropdown-button title="Dropdown Button">
+                <vdlx-dropdown-button title="Dropdown Button">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
-                </vdl-dropdown-button>
+                </vdlx-dropdown-button>
 
             </vdl-row>
         </vdl-section>

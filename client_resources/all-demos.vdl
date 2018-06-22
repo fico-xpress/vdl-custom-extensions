@@ -13,7 +13,7 @@
 
     <vdl-include src="includes/vdlx-sidebar.vdl"></vdl-include>
     <vdl-include src="includes/vdlx-toolbar.vdl"></vdl-include>
-    <vdl-include src="includes/vdl-dropdown.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-dropdown-button.vdl"></vdl-include>
     <vdl-include src="includes/vdl-modal.vdl"></vdl-include>
 
     <vdl-extension name="code-panel">
@@ -68,7 +68,7 @@
                 <vdl-include src="views/tabs-demo.vdl"></vdl-include>
             </vdlx-sidebar-section>
 
-            <vdlx-sidebar-section id="dropdown-demo-section" heading="Dropdown Demo">
+            <vdlx-sidebar-section id="dropdown-demo-section" heading="Dropdown Button Demo">
                 <vdl-include src="views/dropdown-demo.vdl"></vdl-include>
             </vdlx-sidebar-section>
 
