@@ -8,7 +8,7 @@
 
     <client>
         <view-group title="Main">
-            <vdl-view title="Demo" path="welcome.vdl" default="true" requires-scenarios-loaded="false"></vdl-view>
+            <vdl-view title="Demo" path="welcome.vdl" default="true" empty-selection-default="true" requires-scenarios-loaded="false"></vdl-view>
             <vdl-view title="Sidebar Component" path="component-demo.vdl"/>
         </view-group>
         <client-resources-local-path>/Users/e48378/Documents/support/chrisoakley/sidebar-component/client_resources</client-resources-local-path>

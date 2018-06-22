@@ -20,8 +20,8 @@ vdl-sidebar {
 }
 
 vdl-sidebar #container-sidebar {
-    min-width: 300px;
-    width: 300px;
+    min-width: 60px; /* 300px */
+    width: 60px; /* 300px */
     height: 100%;
     flex-grow: 0;
     flex-shrink: 0;
@@ -32,6 +32,33 @@ vdl-sidebar .views {
     flex-shrink: 1;
 }
 
+vdl-sidebar #container-sidebar.expanded {
+    min-width: 260px; /* 300px */
+    width: 260px; /* 300px */
+}
+vdl-sidebar .views.expanded {
+}
+
 vdl-sidebar .sidebar {
     position: initial;
+}
+
+i.sidebar-left {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: no-repeat url(chevron-left.png);
+    background-size: 75%;
+}
+
+i.sidebar-right {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: no-repeat url(chevron-right.png);
+    background-size: 75%;
+}
+
+.mini-submenu {
+    display: block;
 }

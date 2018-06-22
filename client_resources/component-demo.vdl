@@ -23,8 +23,7 @@
 
     <vdl-page>
 
-
-        <vdl-sidebar id="component-demo">
+        <vdl-sidebar id="sidebar-component-demo">
 
             <vdl-sidebar-header>Main</vdl-sidebar-header>
 
@@ -32,7 +31,7 @@
                 <vdl-include src="includes/view1.vdl" />
             </vdl-sidebar-section>
 
-            <vdl-sidebar-section data-id="second-section" heading="Second View">
+            <vdl-sidebar-section id="second-section" heading="Second View">
                 <vdl-include src="includes/view2.vdl" />
             </vdl-sidebar-section>
 

@@ -5,21 +5,31 @@
     <script>
 
         var currentView = VDL.createVariable();
+        currentView.subscribe(function (view) {
+            console.log('[sidebar] currentView', view);
+        });
+
+        var menuItems = ko.observableArray();
 
         VDL('vdl-sidebar-section', {
             tag: 'vdl-sidebar-section',
             modifiesDescendants: false,
+            template: '<vdl-section  data-bind="if: $component.showSection"><vdl-contents></vdl-contents></vdl-section>',
             createViewModel: function (params, componentInfo, vmApi) {
                 var vm = {};
                 params.registerMenuItem(params.name, 'menu', params.sectionId);
                 vm.showSection = VDL.createVariable(false);
-                currentView.subscribe(function(selectId) {
+
+                /*
+                 * hide or show this sidebar-section depending on active
+                 */
+                vm.revealActive = function (selectId) {
+                    console.log('[sidebar] vss::revealActive', selectId, params.sectionId);
                     vm.showSection(selectId === params.sectionId);
-                    vm.showSection() ? $(componentInfo.element).show() : $(componentInfo.element).hide();
-                });
-                if(!currentView()) {
-                    currentView(params.sectionId);
-                }
+                };
+
+                currentView.subscribe(vm.revealActive);
+                console.log('[sidebar] vss:createVM', params);
                 return vm;
             },
             transform: function (element, attrs, api) {
@@ -32,7 +42,7 @@
                     .addParentCallbackParam('registerMenuItem');
                 paramsBuilder.addParam('name', _.get(attrs, 'heading.rawValue', id || 'no-name'));
                 paramsBuilder.addParam('sectionId', id);
-                $(element).hide();
+                // $(element).hide();
             }
         });
 
@@ -67,88 +77,118 @@
             }
         });
 
+        var template = '<div id="container-sidebar" data-bind="css: {expanded: expanded}">\n' +
+            '                    <div class="sidebar-collapse mini-submenu" data-bind="click: expandNav, visible: !expanded()">\n' +
+            '                        <span><i class="sidebar-right" title="Expand"></i></span>\n' +
+            '                    </div>\n' +
+            '                    <ul class="sidebar compact-sidebar list-group" data-bind="visible: expanded()" style="">\n' +
+            '\t\t\t\t\t<span class="pull-right" id="slide-submenu" title="Collapse" data-bind="visible: expanded(), click: collapseNav">\n' +
+            '\t\t\t\t\t\t<i class="sidebar-left"></i>\n' +
+            '\t\t\t\t\t</span>\n' +
+            '\t\t\t\t\t<!-- ko foreach: menuItems -->\n' +
+            '                        <!-- ko if: $data.type === \'menu\' -->\n' +
+            '\t\t\t\t\t    <li data-bind="css: {active: $data.active}">\n' +
+            '                            <a href="#" data-bind="text: $data.name, click: $component.menuChoice">_</a>\n' +
+            '                        </li>\n' +
+            '\t\t\t\t\t    <!-- /ko -->\n' +
+            '                        <!-- ko if: $data.type === \'divider\' -->\n' +
+            '\t\t\t\t\t    <li class="nav-side-divider"></li>\n' +
+            '\t\t\t\t\t    <!-- /ko -->\n' +
+            '                        <!-- ko if: $data.type === \'header\' -->\n' +
+            '\t\t\t\t\t    <li class="header" data-bind="text: $data.name"></li>\n' +
+            '\t\t\t\t\t    <!-- /ko -->\n' +
+            '\t\t\t\t\t<!-- /ko -->\n' +
+            '                    </ul>\n' +
+            '            </div>\n' +
+            '            <div class="views" data-bind="css: {expanded: expanded}">\n' +
+            '                <vdl-contents></vdl-contents>\n' +
+            '            </div>';
 
-
-    </script>
-
-    <vdl-extension name="vdl-sidebar">
-
-        <script>
-
-            var template = '<div id="container-sidebar">\n' +
-                '                    <div class="sidebar-collapse mini-submenu">\n' +
-                '                        <span><i class="fico-icon-chevron-circle-right"></i></span>\n' +
-                '                    </div>\n' +
-                '                    <ul class="sidebar compact-sidebar list-group" style="">\n' +
-                '\t\t\t\t\t<span class="pull-right" id="slide-submenu">\n' +
-                '\t\t\t\t\t\t<i class="fico-icon-chevron-circle-left"></i>\n' +
-                '\t\t\t\t\t</span>\n' +
-                '\t\t\t\t\t<!-- ko foreach: menuItems -->\n' +
-                '                        <!-- ko if: $data[1] === \'menu\' -->\n' +
-                '\t\t\t\t\t    <li data-bind="css: {active: $data.length > 3}">\n' +
-                '                            <a href="#" data-bind="text: $data[0], click: $component.menuChoice">_</a>\n' +
-                '                        </li>\n' +
-                '\t\t\t\t\t    <!-- /ko -->\n' +
-                '                        <!-- ko if: $data[1] === \'divider\' -->\n' +
-                '\t\t\t\t\t    <li class="nav-side-divider"></li>\n' +
-                '\t\t\t\t\t    <!-- /ko -->\n' +
-                '                        <!-- ko if: $data[1] === \'header\' -->\n' +
-                '\t\t\t\t\t    <li class="header" data-bind="text: $data[0]"></li>\n' +
-                '\t\t\t\t\t    <!-- /ko -->\n' +
-                '\t\t\t\t\t<!-- /ko -->\n' +
-                '                    </ul>\n' +
-                '            </div>\n' +
-                '            <div class="views">\n' +
-                '                <vdl-contents></vdl-contents>\n' +
-                '            </div>';
-
-            var menuItems = ko.observableArray();
-
-            VDL('vdl-sidebar', {
-                tag: 'vdl-sidebar',
-                template: template,
-                createViewModel: function (params, componentInfo, vmApi) {
-                    var init = false;
-                    var sidebarId = params.sidebarId;
-                    var vm = {};
-                    vm.registerMenuItem = function (name, type, id) {
-                        if(!init && (type === 'menu')) {
+        VDL('vdl-sidebar', {
+            tag: 'vdl-sidebar',
+            template: template,
+            createViewModel: function (params, componentInfo, vmApi) {
+                var init = false;
+                var sidebarId = params.sidebarId;
+                var sidebarIdExpanded = sidebarId + "-expanded";
+                var prevPage = window.sessionStorage.getItem(sidebarId);
+                console.log('[sidebar] vs::createViewModel', sidebarId, currentView());
+                var vm = {};
+                /*
+                 *  child components call this function to register themselves in the menu.
+                 *  @param {string} name the name to be used as the visible menu text
+                 *  @param {string} type menu|divider|heading
+                 *  @param {string} id DOM node identifier
+                 */
+                vm.registerMenuItem = function (name, type, id) {
+                    var menuItemData = {name: name, type: type, link: id};
+                    if (!init && (type === 'menu')) { // the first item with type === 'menu' becomes the active menu
+                        // init = true;
+                        if(!prevPage) {
+                            menuItemData.active = true;
                             init = true;
-                            menuItems.push([name, type, id, 'active']);
                         } else {
-                            menuItems.push([name, type, id]);
+                            if(menuItemData.link === prevPage) {
+                                menuItemData.active = true;
+                                init = true;
+                            }
                         }
-                    };
-                    /*
-                        data = [name, type, link, active?]
-                    */
-                    vm.menuChoice = function(data) {
-                        if(data.length === 3) {
-                            menuItems(menuItems().map(function(item) {
-                                var result;
-                                if(data[0] === item[0]) {
-                                    result = item.slice(0,3).concat('active');
-                                    currentView(item[2])
-                                    window.sessionStorage.setItem(sidebarId, item[2]);
-                                } else {
-                                    result = item.slice(0,3);
-                                }
-                                return result;
-                            }));
-                        }
+                    } else {
+                        menuItemData.active = false;
                     }
-                    return vm;
-                },
-                transform: function (element, attrs, api) {
-                    var id = _.get(attrs, 'id.rawValue', api.createId('sidebar-'));
-                    if ($(element).attr('id') !== id) {
-                        $(element).attr('id', id);
+                    console.log('[sidebar] registerMenuItem', menuItemData);
+                    menuItems.push(menuItemData);
+                    if(menuItemData.active) {
+                        _.delay(function() {
+                            currentView(menuItemData.link);
+                        });
                     }
-                    var paramsBuilder = api.getComponentParamsBuilder(element);
-                    paramsBuilder.addParam('sidebarId', id);
-                    currentView(window.sessionStorage.getItem(id));
+                };
+
+                /*
+                 *   data = {name, type, link, active?}
+                 */
+                vm.menuChoice = function (data) {
+                    if (!data.active) {
+                        menuItems(menuItems().map(function (item) {
+                            var result;
+                            if (data.name === item.name) {
+                                result = _.defaults({active: true}, item);
+                                currentView(item.link);
+                                window.sessionStorage.setItem(sidebarId, item.link);
+                            } else {
+                                result = _.omit(item, 'active');
+                            }
+                            return result;
+                        }));
+                    }
+                };
+
+                vm.expanded = VDL.createVariable(window.sessionStorage.getItem(sidebarIdExpanded) === null ? true : window.sessionStorage.getItem(sidebarIdExpanded) === 'true');
+                // debugger;
+                vm.expandNav = function() {
+                    vm.expanded(true);
+                    window.sessionStorage.setItem(sidebarIdExpanded, true);
+                };
+
+                vm.collapseNav = function() {
+                    vm.expanded(false);
+                    window.sessionStorage.setItem(sidebarIdExpanded, false);
+                };
+
+                return vm;
+            },
+            transform: function (element, attrs, api) {
+                var id = _.get(attrs, 'id.rawValue', api.createId('sidebar-'));
+                if ($(element).attr('id') !== id) {
+                    $(element).attr('id', id);
                 }
-            });
-        </script>
-    </vdl-extension>
+                var paramsBuilder = api.getComponentParamsBuilder(element);
+                paramsBuilder.addParam('sidebarId', id);
+
+                // currentView(window.sessionStorage.getItem(id));
+            }
+        })
+        ;
+    </script>
 </vdl>
