@@ -18,18 +18,18 @@
     <vdl-column>
         <p>The <code>vdlx-toolbar</code> tag is a simple custom extension that acts as a container for other content. It is defined as:</p>
         <code-panel>
-            VDL('vdlx-toolbar', {
-            tag: 'vdlx-toolbar',
-            template: '&lt;h2 class=&quot;title&quot; data-bind=&quot;text: heading&quot;&gt;&lt;/h2&gt;&lt;div class=&quot;pull-right&quot;&gt;&lt;vdl-contents&gt;&lt;/vdl-contents&gt;&lt;/div&gt;',
-            createViewModel: function (params) {
-            var vm = {};
-            vm.heading = VDL.createVariable(params.heading);
-            return vm;
-            },
-            transform: function (element, attrs, api) {
-            var builder = api.getComponentParamsBuilder(element)
-            .addParam('heading', attrs.heading.rawValue);
-            }
-            });</code-panel>
+VDL('vdlx-toolbar', {
+    tag: 'vdlx-toolbar',
+    template: '&lt;h2 class=&quot;title&quot; data-bind=&quot;text: heading&quot;&gt;&lt;/h2&gt;&lt;div class=&quot;pull-right&quot;&gt;&lt;vdl-contents&gt;&lt;/vdl-contents&gt;&lt;/div&gt;',
+    createViewModel: function (params) {
+        var vm = {};
+        vm.heading = VDL.createVariable(params.heading);
+        return vm;
+    },
+    transform: function (element, attrs, api) {
+        var builder = api.getComponentParamsBuilder(element)
+        .addParam('heading', attrs.heading.rawValue);
+    }
+});</code-panel>
     </vdl-column>
 </vdl>

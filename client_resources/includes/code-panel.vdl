@@ -14,6 +14,7 @@
         </vdl-template>
         <script>
             VDL('code-panel', {
+                tag: 'code-panel',
                 transform: function (element) {
                     element.textContent = element.textContent.trim();
                     hljs.highlightBlock(element);

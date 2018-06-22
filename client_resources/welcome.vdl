@@ -1,8 +1,0 @@
-<vdl version="4.1">
-    <vdl-page>
-        <vdl-section heading="Sidebar Component Demo">
-            <p class="lead">This app demonstrates the use of the <code>&lt;vdlx-sidebar&gt;</code> custom extension.</p>
-            <p class="lead">The demo page is <a href="#" onclick="insight.openView('Sidebar Component')">here</a>.</p>
-        </vdl-section>
-    </vdl-page>
-</vdl>

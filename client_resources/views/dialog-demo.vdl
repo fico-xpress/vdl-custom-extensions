@@ -24,14 +24,14 @@
         This example shows how to embed VDL content in a modal dialog.
     </p>
     <h4></h4>
-    <code-panel>&lt;vdl-modal id=&quot;alert-form&quot;&gt;
+    <code-panel>&lt;vdlx-modal id=&quot;alert-form&quot;&gt;
     &lt;vdl-form vdl-if=&quot;=showChildDetailTable()&quot;&gt;
         &lt;vdl-field entity=&quot;AGENCYNAME&quot; size=&quot;12&quot; indices=&quot;=childDetailTableIndex()&quot;&gt;&lt;/vdl-field&gt;
         &lt;vdl-field entity=&quot;MIN_AGENT_ACCOUNTS&quot; size=&quot;12&quot; indices=&quot;=childDetailTableIndex()&quot;&gt;&lt;/vdl-field&gt;
         &lt;vdl-field entity=&quot;MAX_AGENT_ACCOUNTS&quot; size=&quot;12&quot; indices=&quot;=childDetailTableIndex()&quot;&gt;&lt;/vdl-field&gt;
         &lt;vdl-field entity=&quot;NAGENTS&quot; size=&quot;12&quot; indices=&quot;=childDetailTableIndex()&quot;&gt;&lt;/vdl-field&gt;
     &lt;/vdl-form&gt;
-&lt;/vdl-modal&gt;
+&lt;/vdlx-modal&gt;
     </code-panel>
     <vdl-column>
         <vdl-column size="6" heading="Master table">
@@ -41,13 +41,13 @@
             </vdl-table>
         </vdl-column>
 
-        <vdl-modal id="alert-form">
+        <vdlx-modal id="alert-form">
             <vdl-form vdl-if="=showChildDetailTable()">
                 <vdl-field entity="AGENCYNAME" size="12" indices="=childDetailTableIndex()"></vdl-field>
                 <vdl-field entity="MIN_AGENT_ACCOUNTS" size="12" indices="=childDetailTableIndex()"></vdl-field>
                 <vdl-field entity="MAX_AGENT_ACCOUNTS" size="12" indices="=childDetailTableIndex()"></vdl-field>
                 <vdl-field entity="NAGENTS" size="12" indices="=childDetailTableIndex()"></vdl-field>
             </vdl-form>
-        </vdl-modal>
+        </vdlx-modal>
     </vdl-column>
 </vdl>

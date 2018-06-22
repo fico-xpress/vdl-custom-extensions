@@ -2,8 +2,8 @@
 
     <script>
 
-        VDL('vdl-modal', {
-            tag: 'vdl-modal',
+        VDL('vdlx-modal', {
+            tag: 'vdlx-modal',
 
             template: '<div class="modal fade" id="myModal" tabindex="-1" role="dialog">\n' +
             '  <div class="modal-dialog" role="document">\n' +

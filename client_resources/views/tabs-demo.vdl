@@ -2,64 +2,6 @@
 
     <script>
 
-        VDL('vdl-tabs', {
-            tag: 'vdl-tabs',
-            attributes: [
-                {name: 'layout'}
-            ],
-            template: '<ul role="tablist"><vdl-contents></vdl-contents></ul>',
-            createViewModel: function (params, component) {
-                var vm = {};
-                var $elm = $(component.element);
-
-                $elm.on('click', function (evt) {
-                    if (evt.target.nodeName === 'A') {
-                        var li = evt.target.parentElement;
-                        if (!$(li).hasClass('active')) {
-                            $elm.find('li.active').removeClass('active');
-                            $(li).addClass('active');
-                            var tabText = $(evt.target).text();
-                            window.sessionStorage.setItem(params.rootId, tabText);
-                            $elm.trigger('tabChange', tabText);
-                        }
-                    }
-                });
-
-                if (params.layout === 'horizontal') {
-                    $elm.find('ul').addClass('nav nav-tabs');
-                } else if (params.layout === 'vertical') {
-                    $elm.find('ul').addClass('vert-tab list-group');
-                } else {
-                    throw Error('no such layout');
-                }
-
-                var lastTab = window.sessionStorage.getItem(params.rootId) || params.default;
-                if(lastTab) {
-                    $elm.find('li.active').removeClass('active');
-                    $elm.find('li>a:contains("'+lastTab+'")').parent().addClass('active');
-                    $elm.trigger('tabChange', lastTab);
-                } else {
-
-                }
-
-                return vm;
-            },
-            transform: function (element, attrs, api) {
-                var builder = api.getComponentParamsBuilder(element)
-                    .addParam('layout', _.get(attrs, 'layout.rawValue', 'horizontal'));
-                var id = _.get(attrs, 'id.rawValue', api.createId('vdl-tabs-'));
-                builder.addParam('rootId', id);
-                var defaultTab = window.sessionStorage.getItem(id);
-                if(defaultTab) {
-                    builder.addParam('default', defaultTab);
-                };
-            }
-        });
-
-    </script>
-
-    <script>
-
         var horizTab = VDL.createVariable('Home');
         var vertTab = VDL.createVariable('Profile');
 
@@ -75,7 +17,6 @@
 
     <style>
         .panel  {
-            outline: 1px solid rgb(221,221,221);
             min-height: 120px;
             padding-left: 9px;
         }
@@ -83,23 +24,24 @@
 
     <vdl-column>
         <h3>Tabs demo</h3>
-
+        <p>Uses the style guide nav-pills for styling the tabs.</p>
+        <p>Remembers the current tab using the browser session storage.</p>
         <h4>Horizontal Tabs</h4>
-        <vdl-tabs vdl-event="tabChange: horizTabChange">
+        <vdlx-tabs vdl-event="tabChange: horizTabChange">
             <li><a href="#">Home</a></li>
             <li><a href="#">Scripts</a></li>
             <li><a href="#">Child panels</a></li>
-        </vdl-tabs>
+        </vdlx-tabs>
 
         <div class="panel" vdl-if="=horizTab() === 'Home'">
             <h4>Home</h4>
-            <p>The <code>vdl-tabs</code> custom extension wraps HTML <code>li</code> tags to generate the individual tabs</p>
+            <p>The <code>vdlx-tabs</code> custom extension wraps HTML <code>li</code> tags to generate the individual tabs</p>
             <code-panel>
-&lt;vdl-tabs vdl-event=&quot;tabChange: horizTabChange&quot;&gt;
+&lt;vdlx-tabs vdl-event=&quot;tabChange: horizTabChange&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Messages&lt;/a&gt;&lt;/li&gt;
-&lt;/vdl-tabs&gt;
+&lt;/vdlx-tabs&gt;
             </code-panel>
         </div>
         <div class="panel" vdl-if="=horizTab() === 'Scripts'">
@@ -120,22 +62,34 @@
         </div>
         <div class="panel" vdl-if="=horizTab() === 'Child panels'">
             <h4>Child panels</h4>
-
+            <code-panel>
+&lt;div class=&quot;panel&quot; vdl-if=&quot;=horizTab() === 'Home'&quot;&gt;
+    &lt;!-- Home content --&gt;
+&lt;/div&gt;
+&lt;div class=&quot;panel&quot; vdl-if=&quot;=horizTab() === 'Scripts'&quot;&gt;
+    &lt;!-- Scripts content --&gt;
+&lt;/div&gt;
+&lt;div class=&quot;panel&quot; vdl-if=&quot;=horizTab() === 'Child panels'&quot;&gt;
+    &lt;!-- Child panels content --&gt;
+&lt;/div&gt;
+            </code-panel>
         </div>
 
     </vdl-column>
 
+<!--
     <vdl-column>
 
         <h4>Vertical Tabs</h4>
-        <vdl-tabs layout="vertical" vdl-event="tabChange: vertTabChange" style="height: 300px;">
+        <vdlx-tabs layout="vertical" vdl-event="tabChange: vertTabChange" style="height: 300px;">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Messages</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Our products</a></li>
             <li><a href="#">Contact us</a></li>
-        </vdl-tabs>
+        </vdlx-tabs>
 
     </vdl-column>
+-->
 
 </vdl>

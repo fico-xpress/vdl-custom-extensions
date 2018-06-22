@@ -14,14 +14,10 @@
     <vdl-include src="includes/vdlx-sidebar.vdl"></vdl-include>
     <vdl-include src="includes/vdlx-toolbar.vdl"></vdl-include>
     <vdl-include src="includes/vdlx-dropdown-button.vdl"></vdl-include>
-    <vdl-include src="includes/vdl-modal.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-modal.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-tabs.vdl"></vdl-include>
 
-    <vdl-extension name="code-panel">
-        <vdl-template>
-            <vdl-contents></vdl-contents>
-        </vdl-template>
-    </vdl-extension>
-
+    <vdl-include src="includes/code-panel.vdl"></vdl-include>
 
     <vdl-page>
         <vdlx-sidebar id="all-demos-sidebar">
@@ -34,7 +30,7 @@
                     <h3>Overview</h3>
                     <p class="lead">This view uses the <code>vdlx-sidebar</code> custom extension to introduce other
                         custom extensions</p>
-                    <p>The sidebar is in use to the right and controls the visibility of all the
+                    <p>The sidebar is in use to the left and controls the visibility of all the
                         sections tagged with <code>vdlx-sidebar-section</code></p>
                     <code-panel>
 &lt;vdlx-sidebar&gt;

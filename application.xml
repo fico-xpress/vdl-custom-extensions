@@ -8,22 +8,8 @@
 
     <client>
         <view-group title="Main">
-<!--
-            <vdl-view title="Demo" path="welcome.vdl" ></vdl-view>
-            <vdl-view title="Sidebar Component" path="component-demo.vdl"/>
-            <vdl-view title="Test1" path="test1.vdl"/>
--->
             <vdl-view title="All Demos" path="all-demos.vdl" default="true" empty-selection-default="true" requires-scenarios-loaded="false"/>
         </view-group>
-
-<!--
-        <view-group title="demos">
-            <vdl-view title="Nav Bar Demo" path="views/navbar-demo.vdl"/>
-            <vdl-view title="Cards Demo" path="views/cards-demo.vdl"/>
-            <vdl-view title="Tabs Demo" path="views/tabs-demo.vdl"/>
-            <vdl-view title="Button Icon Demo" path="views/button-icon-demo.vdl"/>
-        </view-group>
--->
         <client-resources-local-path>/Users/e48378/Documents/support/chrisoakley/sidebar-component/client_resources</client-resources-local-path>
     </client>
 
