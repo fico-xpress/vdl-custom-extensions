@@ -1,25 +1,25 @@
 <vdl version="4.1">
     <vdl-column>
-        <vdl-toolbar heading="A VDL Toolbar">
+        <vdlx-toolbar heading="A VDL Toolbar">
             <button class="btn"><img src="gfx/lock.svg" alt="Locked"></button>
             <button class="btn btn-primary">Other</button>
-        </vdl-toolbar>
+        </vdlx-toolbar>
     </vdl-column>
     <vdl-column>
         <h3>Toolbar</h3>
-        <p class="lead">This view demonstrates the use of the <code>vdl-toolbar</code> custom extension</p>
+        <p class="lead">This view demonstrates the use of the <code>vdlx-toolbar</code> custom extension</p>
         <code-panel>
-&lt;vdl-toolbar heading=&quot;A VDL Toolbar&quot;&gt;
+&lt;vdlx-toolbar heading=&quot;A VDL Toolbar&quot;&gt;
     &lt;button class=&quot;btn&quot;&gt;&lt;img src=&quot;gfx/lock.svg&quot; alt=&quot;Locked&quot;&gt;&lt;/button&gt;
     &lt;button class=&quot;btn btn-primary&quot;&gt;Other&lt;/button&gt;
-&lt;/vdl-toolbar&gt;
+&lt;/vdlx-toolbar&gt;
         </code-panel>
     </vdl-column>
     <vdl-column>
-        <p>The <code>vdl-toolbar</code> tag is a simple custom extension that acts as a container for other content. It is defined as:</p>
+        <p>The <code>vdlx-toolbar</code> tag is a simple custom extension that acts as a container for other content. It is defined as:</p>
         <code-panel>
-            VDL('vdl-toolbar', {
-            tag: 'vdl-toolbar',
+            VDL('vdlx-toolbar', {
+            tag: 'vdlx-toolbar',
             template: '&lt;h2 class=&quot;title&quot; data-bind=&quot;text: heading&quot;&gt;&lt;/h2&gt;&lt;div class=&quot;pull-right&quot;&gt;&lt;vdl-contents&gt;&lt;/vdl-contents&gt;&lt;/div&gt;',
             createViewModel: function (params) {
             var vm = {};

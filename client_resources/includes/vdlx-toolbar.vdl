@@ -1,7 +1,7 @@
 <vdl version="4.1">
 
     <style>
-        vdl-toolbar {
+        vdlx-toolbar {
             outline: 1px solid lightgray;
             padding: 11px 27px;
             width: 100%;
@@ -9,7 +9,7 @@
             display: block;
         }
 
-        vdl-toolbar h2.title {
+        vdlx-toolbar h2.title {
             font-size: 20px;
             line-height: 35px;
             display: inline-block;
@@ -17,14 +17,14 @@
             padding: 0;
         }
 
-        .vdl-toolbar-buttons {
+        .vdlx-toolbar-buttons {
             float: right;
         }
     </style>
 
     <script>
-        VDL('vdl-toolbar', {
-            tag: 'vdl-toolbar',
+        VDL('vdlx-toolbar', {
+            tag: 'vdlx-toolbar',
             template: '<h2 class="title" data-bind="text: heading"></h2><div class="pull-right"><vdl-contents></vdl-contents></div>',
             createViewModel: function (params) {
                 var vm = {};

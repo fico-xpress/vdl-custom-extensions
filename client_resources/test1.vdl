@@ -1,6 +1,6 @@
 <vdl version="4.1">
 
-    <vdl-include src="includes/vdl-toolbar.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-toolbar.vdl"></vdl-include>
     <vdl-include src="includes/vdl-dropdown.vdl"></vdl-include>
 
     <style>
@@ -20,10 +20,10 @@
         <vdl-section>
             <vdl-row>
                 <vdl-column size="12">
-                    <vdl-toolbar heading="A VDL Toolbar">
+                    <vdlx-toolbar heading="A VDL Toolbar">
                         <button class="btn"><img src="gfx/lock.svg" alt="Locked"></button>
                         <button class="btn btn-primary">Other</button>
-                    </vdl-toolbar>
+                    </vdlx-toolbar>
                 </vdl-column>
             </vdl-row>
 

@@ -12,7 +12,7 @@
     </script>
 
     <vdl-include src="includes/vdlx-sidebar.vdl"></vdl-include>
-    <vdl-include src="includes/vdl-toolbar.vdl"></vdl-include>
+    <vdl-include src="includes/vdlx-toolbar.vdl"></vdl-include>
     <vdl-include src="includes/vdl-dropdown.vdl"></vdl-include>
     <vdl-include src="includes/vdl-modal.vdl"></vdl-include>
 
