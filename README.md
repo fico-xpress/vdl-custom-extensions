@@ -1,5 +1,5 @@
 # vdl-custom-extensions
-Library of prototype VDL custom extensions for Fico Xpress Insight
+Library of prototype VDL custom extensions for FICO Xpress Insight
 
 ## Notice
 
