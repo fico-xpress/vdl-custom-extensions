@@ -16,4 +16,6 @@ This extension allows the wrapping of VDL content within the `<vdlx-modal>` tag 
     <h3>Settings controls here</h3>
 </vdlx-modal>
 ```
-This example displays a button that, when clicked, launches a modal dialog with the title taken from the `title` attribute. 
+This example displays a button that, when clicked, launches a modal dialog with the title taken from the `title` attribute.
+
+![vdlx-modal](../gfx/vdlx-modal1.png) 
