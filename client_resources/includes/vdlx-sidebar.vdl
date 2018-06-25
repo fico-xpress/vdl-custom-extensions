@@ -55,7 +55,7 @@
             width: 20px;
             height: 20px;
             display: block;
-            background: no-repeat url(chevron-left.png);
+            background: no-repeat url(includes/chevron-left.png);
             background-size: 75%;
         }
 
@@ -63,7 +63,7 @@
             width: 20px;
             height: 20px;
             display: block;
-            background: no-repeat url(chevron-right.png);
+            background: no-repeat url(includes/chevron-right.png);
             background-size: 75%;
         }
 
