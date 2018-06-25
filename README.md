@@ -23,7 +23,7 @@ The <code>includes</code> contains the custom extension source. Use <code><vdl-i
 #### Current Extensions
 
 * <code>vdlx-sidebar</code> - the main sidebar extension
-* <code>vdlx-toolbar</code> - a simple toolbar, usually top of view
+* <code>vdlx-toolbar</code> - a simple toolbar, usually top of view [discussion](./client_resources/includes/vdlx-toolbar.md)
 * <code>vdlx-dropdown-button</code> - a dropdown menu
 * <code>vdlx-tabs</code> - tabs or pills for inner view navigation
 * <code>vdlx-modal</code> - a modal dialog wrapper that can contain custom VDL
