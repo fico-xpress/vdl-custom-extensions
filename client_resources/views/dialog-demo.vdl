@@ -3,6 +3,10 @@
         .custom-alert-dialog .modal-content {
             padding: 19px;
         }
+        /* fix for narrow forms */
+        vdlx-modal .form-horizontal .control-label {
+            text-align: left;
+        }
     </style>
     <script>
         var showChildDetailTable = VDL.createVariable(false);
@@ -33,15 +37,16 @@
     &lt;/vdl-form&gt;
 &lt;/vdlx-modal&gt;
     </code-panel>
-    <vdl-column>
-        <vdl-column size="6" heading="Master table">
+    <vdl-column size="12" heading="Master table">
+        <vdl-column size="6" >
+            <p>Click on a table cell to show the editor for this row of data.</p>
             <vdl-table vdl-event="'selection-changed':rowDetail, 'selection-removed':rowDetail">
                 <vdl-table-column entity="AGENCYNAME"></vdl-table-column>
                 <vdl-table-column entity="NAGENTS"></vdl-table-column>
             </vdl-table>
         </vdl-column>
 
-        <vdlx-modal id="alert-form">
+        <vdlx-modal id="alert-form" title="=scenario.props.name">
             <vdl-form vdl-if="=showChildDetailTable()">
                 <vdl-field entity="AGENCYNAME" size="12" indices="=childDetailTableIndex()"></vdl-field>
                 <vdl-field entity="MIN_AGENT_ACCOUNTS" size="12" indices="=childDetailTableIndex()"></vdl-field>
@@ -50,4 +55,33 @@
             </vdl-form>
         </vdlx-modal>
     </vdl-column>
+
+    <vdl-column heading="Simple modal example">
+        <p>Click the 'SHOW' button to launch a simple modal dialog. THe contents are show in the source code example below but may be any VDL content.</p>
+        <script>
+            function showDemo() {
+                $('#demo-modal').trigger('showModal');
+            }
+        </script>
+        <a id="demo-btn" vdl-event="click: showDemo" class="btn">Show</a>
+        <vdlx-modal id="demo-modal" title="Settings panel">
+            <h3>Settings controls here</h3>
+        </vdlx-modal>
+    </vdl-column>
+
+    <vdl-column>
+        <code-panel>
+&lt;script&gt;
+    function showDemo() {
+        $('#demo-modal').trigger('showModal');
+    }
+&lt;/script&gt;
+&lt;a id=&quot;demo-btn&quot; vdl-event=&quot;click: showDemo&quot; class=&quot;btn&quot;&gt;Show&lt;/a&gt;
+&lt;vdlx-modal id=&quot;demo-modal&quot; title=&quot;Settings panel&quot;&gt;
+    &lt;h3&gt;Settings controls here&lt;/h3&gt;
+&lt;/vdlx-modal&gt;
+        </code-panel>
+    </vdl-column>
+
+
 </vdl>

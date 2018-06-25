@@ -5,12 +5,16 @@
         VDL('vdlx-modal', {
             tag: 'vdlx-modal',
 
+            attributes: [
+                {name: 'title', acceptsExpression: true, description: 'Title string for the modal dialog'}
+            ],
+
             template: '<div class="modal fade" id="myModal" tabindex="-1" role="dialog">\n' +
             '  <div class="modal-dialog" role="document">\n' +
             '    <div class="modal-content">\n' +
             '      <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>\n' +
-            '        <h4 class="modal-title" id="myModalLabel">Modal title</h4>\n' +
+            '        <h4 class="modal-title" id="myModalLabel" data-bind="text: title">Modal title</h4>\n' +
             '      </div>\n' +
             '      <div class="modal-body">\n' +
             '        <vdl-contents></vdl-contents>' +
@@ -27,10 +31,18 @@
                 $(component.element).on('showModal', function(evt) {
                     $(component.element).find('.modal').modal('show');
                 });
+                vm.title = ko.observable(api.unwrap(params.title));
                 return vm;
             },
 
             transform: function(element, attrs, api) {
+                var builder = api.getComponentParamsBuilder(element);
+                var title = attrs.title;
+                if(!!title) {
+                    builder.addParam('title', title.expression.isString ? title.rawValue : title.expression.value, !title.expression.isString);
+                } else {
+                    builder.addParam('title', 'Modal title');
+                }
 
             }
 
