@@ -5,7 +5,7 @@
 This extension allows the wrapping of VDL content within the `<vdlx-modal>` tag in order to provide that content in a modal dialog when triggered.
 
 #### Usage
-```
+```html
 <script>
     function showDemo() {
         $('#demo-modal').trigger('showModal');
