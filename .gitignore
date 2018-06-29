@@ -2,7 +2,6 @@
 dump
 .DS_Store
 *.bdg
-*.bim
 *.zip
 .c9/
 .omsync*
