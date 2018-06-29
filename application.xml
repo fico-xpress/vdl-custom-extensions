@@ -8,7 +8,7 @@
 
     <client>
         <view-group title="Main">
-            <vdl-view title="All Demos" path="all-demos.vdl" default="true" empty-selection-default="true" requires-scenarios-loaded="false"/>
+            <vdl-view title="All Demos" path="all-demos.vdl" default="true" requires-scenarios-loaded="true"/>
         </view-group>
     </client>
 
