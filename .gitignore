@@ -1,4 +1,7 @@
 .idea
 dump
 .DS_Store
-sidebar-component.zip
+*.bdg
+*.zip
+.c9/
+.omsync*
