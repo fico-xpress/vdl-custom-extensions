@@ -10,7 +10,6 @@
         <view-group title="Main">
             <vdl-view title="All Demos" path="all-demos.vdl" default="true" requires-scenarios-loaded="true"/>
         </view-group>
-        <client-resources-local-path>/Users/e48378/Documents/support/chrisoakley/sidebar-component/client_resources</client-resources-local-path>
     </client>
 
 </model-companion>

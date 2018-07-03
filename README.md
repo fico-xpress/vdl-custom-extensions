@@ -12,7 +12,7 @@ If any of these extensions are included in the product then they will be depreca
 You are welcome to use these extensions in your VDL apps and to learn from the source code in creating your own extensions. When developing custom extensions please use another namespace so that there is no confusion between your own custom extensions and the official ones. 
 
 #### Usage
-Zip up the contents of the `client_resources` directory, then upload the zip archive to your instance of Xpress Insight 4.x.
+Zip up the contents of the `dist` directory, then upload the zip archive to your instance of Xpress Insight 4.x.
 
 After loading a new App will be available named: 'VDL Extensions Demo'.
 
