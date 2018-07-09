@@ -23,25 +23,25 @@ The <code>dist/client_resources/includes</code> directory contains the custom ex
 #### Current Extensions
 
 #### <code>vdlx-sidebar</code>
-the main sidebar extension [discussion](client_resources/includes/vdlx-sidebar.md)
+the main sidebar extension [discussion](dist/client_resources/includes/vdlx-sidebar.md)
 
-![vdlx-sidebar](client_resources/gfx/vdlx-sidebar1.png)
+![vdlx-sidebar](dist/client_resources/gfx/vdlx-sidebar1.png)
 #### <code>vdlx-toolbar</code>
-a simple toolbar, usually top of view [discussion](./client_resources/includes/vdlx-toolbar.md)
+a simple toolbar, usually top of view [discussion](./dist/client_resources/includes/vdlx-toolbar.md)
 
-![vdlx-toolbar](client_resources/gfx/vdlx-toolbar1.png)
+![vdlx-toolbar](dist/client_resources/gfx/vdlx-toolbar1.png)
 #### <code>vdlx-dropdown-button</code>
 a dropdown menu
 
-![vdlx-dropdown-button](client_resources/gfx/vdlx-dropdown-button1.png)
+![vdlx-dropdown-button](dist/client_resources/gfx/vdlx-dropdown-button1.png)
 #### <code>vdlx-tabs</code>
-tabs or pills for inner view navigation [discussion](./client_resources/includes/vdlx-tabs.md)
+tabs or pills for inner view navigation [discussion](./dist/client_resources/includes/vdlx-tabs.md)
 
-![vdlx-tabs](client_resources/gfx/vdlx-tabs1.png)
+![vdlx-tabs](dist/client_resources/gfx/vdlx-tabs1.png)
 #### <code>vdlx-modal</code>
-a modal dialog wrapper that can contain custom VDL [discussion](./client_resources/includes/vdlx-modal.md)
+a modal dialog wrapper that can contain custom VDL [discussion](./dist/client_resources/includes/vdlx-modal.md)
 
-![vdlx-modal](client_resources/gfx/vdlx-modal1.png)
+![vdlx-modal](dist/client_resources/gfx/vdlx-modal1.png)
 
 There are other component demos within this repository that were simpler to create with exisitng VDL and HTML rather than creating a custom extension. 
 
