@@ -28,3 +28,6 @@ Code improvements to how custom extensions are defined.
 Simpler syntax.
 
 Auto-generating dynamic and static attributes to reduce boiler plate. 
+
+### InsightArray
+Helper functions to make working with InsightArray much easier.
