@@ -18,7 +18,7 @@ After loading a new App will be available named: 'VDL Extensions Demo'.
 
 #### Extensions Usage
 
-The <code>dist/client_resources/includes</code> directory contains the custom extension source. Use <code><vdl-include src="vdlx-extension-name.vdl"/></code> where <code>extension-name</code> is one of these custom extensions to include in your view. The relevant tag will then be usable within your app. 
+The `dist/client_resources/includes` directory contains the custom extension source. Use `<vdl-include src="vdlx-extension-name.vdl"/>` where `extension-name` is one of these custom extensions to include in your view. The relevant tag will then be usable within your app. 
 
 #### Current Extensions
 
