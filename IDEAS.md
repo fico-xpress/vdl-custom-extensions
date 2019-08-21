@@ -31,3 +31,6 @@ Auto-generating dynamic and static attributes to reduce boiler plate.
 
 ### InsightArray
 Helper functions to make working with InsightArray much easier.
+
+### Graph network visualization
+Adds new chart type to visualize graph networks (e.g. https://en.wikipedia.org/wiki/Graph_drawing)
