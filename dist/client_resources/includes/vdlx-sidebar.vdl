@@ -86,7 +86,10 @@
             modifiesDescendants: false,
             template: '<vdl-section  data-bind="if: $component.showSection"><vdl-contents></vdl-contents></vdl-section>',
             createViewModel: function (params, componentInfo, vmApi) {
-                var vm = {};
+                var vm = {
+                    vars: params.vars
+                };
+                // debugger;
                 params.registerMenuItem(params.name, 'menu', params.sectionId);
                 vm.showSection = VDL.createVariable(false);
 
@@ -112,6 +115,11 @@
                     .addParentCallbackParam('registerMenuItem');
                 paramsBuilder.addParam('name', _.get(attrs, 'heading.rawValue', id || 'no-name'));
                 paramsBuilder.addParam('sectionId', id);
+                paramsBuilder.addParam(
+                    'vars',
+                    '$root.vars',
+                    true
+                );
             }
         });
 
