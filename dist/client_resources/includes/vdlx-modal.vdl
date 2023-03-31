@@ -1,4 +1,4 @@
-<vdl version="5">
+<vdl version="4.8">
     <script>
         VDL('vdlx-modal', {
             tag: 'vdlx-modal',
